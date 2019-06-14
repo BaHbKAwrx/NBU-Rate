@@ -10,16 +10,16 @@ import UIKit
 
 class CurrencyListViewController: UITableViewController {
     
-    let currencies = [
-        Currency(code: "USD", name: "Американський долар", rate: 26.833, exchangeDate: "18.06.2019", image: "US"),
-        Currency(code: "EUR", name: "Эвро", rate: 29.345, exchangeDate: "18.06.2019", image: "EU"),
-        Currency(code: "RUB", name: "Росiйський рубль", rate: 0.322, exchangeDate: "18.06.2019", image: "RU")
-    ]
+    private var currencies = [Currency]()
+    private let apiManager = APIManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        apiManager.performRequest { currencyArray in
+            self.currencies = currencyArray
+            self.tableView.reloadData()
+        }
     }
 
     // MARK: - Table view data source
@@ -36,7 +36,7 @@ class CurrencyListViewController: UITableViewController {
             cell.currencyCode.text = currency.code
             cell.currencyName.text = currency.name
             cell.currencyRate.text = "\(currency.rate)"
-            cell.currencyImage.image = UIImage(named: "\(currency.image)")
+            cell.currencyImage.image = UIImage(named: "RU")
             return cell
         }
         return UITableViewCell()
