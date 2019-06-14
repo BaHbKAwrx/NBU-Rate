@@ -8,10 +8,21 @@
 
 import Foundation
 
-struct Currency {
+struct Currency: Codable {
+    
     let code: String
     let name: String
     let rate: Double
     let exchangeDate: String
-    let image: String
+    
+    var image: String {
+        return code
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case code = "cc"
+        case name = "txt"
+        case exchangeDate = "exchangedate"
+        case rate
+    }
 }
