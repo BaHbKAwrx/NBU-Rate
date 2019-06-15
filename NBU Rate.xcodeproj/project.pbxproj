@@ -13,6 +13,7 @@
 		62A0986122B3FEED000E14A6 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A0986022B3FEED000E14A6 /* Currency.swift */; };
 		62A0986322B4053A000E14A6 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A0986222B4053A000E14A6 /* APIManager.swift */; };
 		62A0986822B42A4A000E14A6 /* CurrencyImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A0986722B42A4A000E14A6 /* CurrencyImageManager.swift */; };
+		62A0986A22B550BD000E14A6 /* DateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A0986922B550BD000E14A6 /* DateConverter.swift */; };
 		62C5A1A722B3F0440057DF7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C5A1A622B3F0440057DF7D /* AppDelegate.swift */; };
 		62C5A1AC22B3F0440057DF7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62C5A1AA22B3F0440057DF7D /* Main.storyboard */; };
 		62C5A1AE22B3F0450057DF7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62C5A1AD22B3F0450057DF7D /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 		62A0986022B3FEED000E14A6 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		62A0986222B4053A000E14A6 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		62A0986722B42A4A000E14A6 /* CurrencyImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyImageManager.swift; sourceTree = "<group>"; };
+		62A0986922B550BD000E14A6 /* DateConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateConverter.swift; sourceTree = "<group>"; };
 		62C5A1A322B3F0440057DF7D /* NBU Rate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NBU Rate.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		62C5A1A622B3F0440057DF7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		62C5A1AB22B3F0440057DF7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 			children = (
 				62A0986022B3FEED000E14A6 /* Currency.swift */,
 				62A0986222B4053A000E14A6 /* APIManager.swift */,
+				62A0986922B550BD000E14A6 /* DateConverter.swift */,
 				62A0986722B42A4A000E14A6 /* CurrencyImageManager.swift */,
 			);
 			path = Models;
@@ -178,6 +181,7 @@
 				62A0986822B42A4A000E14A6 /* CurrencyImageManager.swift in Sources */,
 				62A0985B22B3F2C7000E14A6 /* CurrencyListViewController.swift in Sources */,
 				62A0986122B3FEED000E14A6 /* Currency.swift in Sources */,
+				62A0986A22B550BD000E14A6 /* DateConverter.swift in Sources */,
 				62C5A1A722B3F0440057DF7D /* AppDelegate.swift in Sources */,
 				62A0985F22B3FCAD000E14A6 /* CurrencyDetailViewController.swift in Sources */,
 				62A0985D22B3F9EC000E14A6 /* CurrencyRateCell.swift in Sources */,

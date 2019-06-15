@@ -17,10 +17,20 @@ class CurrencyListViewController: UITableViewController {
         super.viewDidLoad()
         title = "Loading..."
         
-        apiManager.performRequest { currencyArray in
+        apiManager.performRequest(for: Date()) { currencyArray in
             self.currencies = currencyArray
-            self.title = "Курс на 14.06.19"
+            self.title = "Курс на \(self.currencies.first?.exchangeDate ?? " ")"
             self.tableView.reloadData()
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetail" {
+            if let controller = segue.destination as? CurrencyDetailViewController {
+                if let cell = sender as? CurrencyRateCell, let indexPath = tableView.indexPath(for: cell) {
+                    controller.currencyCode = currencies[indexPath.row].code
+                }
+            }
         }
     }
 

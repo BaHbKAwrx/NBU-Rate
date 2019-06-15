@@ -12,11 +12,11 @@ class APIManager {
  
     private var dataTask: URLSessionDataTask?
     
-    func performRequest(completion: @escaping ([Currency]) -> Void) {
+    func performRequest(for date: Date, completion: @escaping ([Currency]) -> Void) {
         
         dataTask?.cancel()
         
-        guard let url = requestURL(for: "20190614") else {
+        guard let url = requestURL(for: date) else {
             print("Error with URL")
             return
         }
@@ -31,7 +31,6 @@ class APIManager {
             }
             if let response = response as? HTTPURLResponse, response.statusCode == 200, let data = data {
                 let currencies = self.parse(data: data)
-                // TODO: sort currencies array
                 
                 DispatchQueue.main.async {
                     completion(currencies)
@@ -42,10 +41,10 @@ class APIManager {
         dataTask?.resume()
     }
     
-    private func requestURL(for date: String) -> URL? {
-        // TODO: convert current date object from date to proper string (create class for this)
+    private func requestURL(for date: Date) -> URL? {
+        let convertedDate = DateConverter.toURLFormat(with: date)
         
-        let urlString = "https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?date=\(date)&json"
+        let urlString = "https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?date=\(convertedDate)&json"
         let url = URL(string: urlString)
         return url
     }

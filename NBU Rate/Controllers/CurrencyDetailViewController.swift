@@ -9,11 +9,13 @@
 import UIKit
 
 class CurrencyDetailViewController: UIViewController {
+    
+    var currencyCode = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        print(currencyCode)
     }
     
 }
