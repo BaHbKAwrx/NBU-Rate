@@ -55,11 +55,11 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pTO-bn-dA6">
                                                     <rect key="frame" x="0.0" y="0.0" width="45" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Il7-cA-qdx">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="Il7-cA-qdx">
                                                     <rect key="frame" x="0.0" y="28.5" width="45" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -71,6 +71,7 @@
                                     <constraints>
                                         <constraint firstItem="pKc-QN-LGy" firstAttribute="leading" secondItem="7Cg-LD-Fec" secondAttribute="leading" constant="16" id="AW1-ZC-y90"/>
                                         <constraint firstItem="mzq-5A-2Rk" firstAttribute="centerY" secondItem="7Cg-LD-Fec" secondAttribute="centerY" id="Bv5-ga-1wF"/>
+                                        <constraint firstItem="RQZ-0z-QLs" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mzq-5A-2Rk" secondAttribute="trailing" constant="16" id="El0-jj-vwC"/>
                                         <constraint firstItem="pKc-QN-LGy" firstAttribute="centerY" secondItem="7Cg-LD-Fec" secondAttribute="centerY" id="TCD-MC-Bwo"/>
                                         <constraint firstAttribute="trailing" secondItem="RQZ-0z-QLs" secondAttribute="trailing" constant="16" id="g9V-YM-axU"/>
                                         <constraint firstItem="RQZ-0z-QLs" firstAttribute="centerY" secondItem="7Cg-LD-Fec" secondAttribute="centerY" id="ghi-6c-6Lr"/>

@@ -16,7 +16,7 @@ struct Currency: Codable {
     let exchangeDate: String
     
     var image: String {
-        return code
+        return CurrencyImageManager(code: code).rawValue
     }
     
     enum CodingKeys: String, CodingKey {
