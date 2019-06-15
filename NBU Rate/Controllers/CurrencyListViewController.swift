@@ -15,9 +15,11 @@ class CurrencyListViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        title = "Loading..."
+        
         apiManager.performRequest { currencyArray in
             self.currencies = currencyArray
+            self.title = "Курс на 14.06.19"
             self.tableView.reloadData()
         }
     }
@@ -25,7 +27,6 @@ class CurrencyListViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return currencies.count
     }
     
@@ -35,8 +36,8 @@ class CurrencyListViewController: UITableViewController {
             let currency = currencies[indexPath.row]
             cell.currencyCode.text = currency.code
             cell.currencyName.text = currency.name
-            cell.currencyRate.text = "\(currency.rate)"
-            cell.currencyImage.image = UIImage(named: "RU")
+            cell.currencyRate.text = String(format: "%.4f", currency.rate)
+            cell.currencyImage.image = UIImage(named: currency.image)
             return cell
         }
         return UITableViewCell()
