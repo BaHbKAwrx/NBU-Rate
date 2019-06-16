@@ -1,0 +1,6 @@
+framework module Pods_NBU_Rate {
+  umbrella header "Pods-NBU Rate-umbrella.h"
+
+  export *
+  module * { export * }
+}

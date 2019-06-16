@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2116EFF9C64DDDEB6C05D7D4 /* Pods_NBU_Rate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5221B681E8C014233B5C6990 /* Pods_NBU_Rate.framework */; };
 		62A0985B22B3F2C7000E14A6 /* CurrencyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A0985A22B3F2C7000E14A6 /* CurrencyListViewController.swift */; };
 		62A0985D22B3F9EC000E14A6 /* CurrencyRateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A0985C22B3F9EC000E14A6 /* CurrencyRateCell.swift */; };
 		62A0985F22B3FCAD000E14A6 /* CurrencyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A0985E22B3FCAD000E14A6 /* CurrencyDetailViewController.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5221B681E8C014233B5C6990 /* Pods_NBU_Rate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NBU_Rate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		62A0985A22B3F2C7000E14A6 /* CurrencyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListViewController.swift; sourceTree = "<group>"; };
 		62A0985C22B3F9EC000E14A6 /* CurrencyRateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRateCell.swift; sourceTree = "<group>"; };
 		62A0985E22B3FCAD000E14A6 /* CurrencyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyDetailViewController.swift; sourceTree = "<group>"; };
@@ -34,6 +36,8 @@
 		62C5A1AD22B3F0450057DF7D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		62C5A1B022B3F0450057DF7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		62C5A1B222B3F0450057DF7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		91D22F6853F87E7F79ECF948 /* Pods-NBU Rate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NBU Rate.release.xcconfig"; path = "Pods/Target Support Files/Pods-NBU Rate/Pods-NBU Rate.release.xcconfig"; sourceTree = "<group>"; };
+		B3388B2D46428EB3BD6AC8AE /* Pods-NBU Rate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NBU Rate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NBU Rate/Pods-NBU Rate.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2116EFF9C64DDDEB6C05D7D4 /* Pods_NBU_Rate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +85,8 @@
 			children = (
 				62C5A1A522B3F0440057DF7D /* NBU Rate */,
 				62C5A1A422B3F0440057DF7D /* Products */,
+				D1C2304D18589848B7BEBBDF /* Pods */,
+				C8FF25EAF73D96DDF8E0389E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,6 +113,23 @@
 			path = "NBU Rate";
 			sourceTree = "<group>";
 		};
+		C8FF25EAF73D96DDF8E0389E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5221B681E8C014233B5C6990 /* Pods_NBU_Rate.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D1C2304D18589848B7BEBBDF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B3388B2D46428EB3BD6AC8AE /* Pods-NBU Rate.debug.xcconfig */,
+				91D22F6853F87E7F79ECF948 /* Pods-NBU Rate.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -113,9 +137,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 62C5A1B522B3F0450057DF7D /* Build configuration list for PBXNativeTarget "NBU Rate" */;
 			buildPhases = (
+				E2B877476BA7A48636A759E6 /* [CP] Check Pods Manifest.lock */,
 				62C5A19F22B3F0440057DF7D /* Sources */,
 				62C5A1A022B3F0440057DF7D /* Frameworks */,
 				62C5A1A122B3F0440057DF7D /* Resources */,
+				7BE987C0DCF8CE1DA7D76940 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -171,6 +197,53 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7BE987C0DCF8CE1DA7D76940 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-NBU Rate/Pods-NBU Rate-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NBU Rate/Pods-NBU Rate-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E2B877476BA7A48636A759E6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NBU Rate-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		62C5A19F22B3F0440057DF7D /* Sources */ = {
@@ -328,6 +401,7 @@
 		};
 		62C5A1B622B3F0450057DF7D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B3388B2D46428EB3BD6AC8AE /* Pods-NBU Rate.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -347,6 +421,7 @@
 		};
 		62C5A1B722B3F0450057DF7D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 91D22F6853F87E7F79ECF948 /* Pods-NBU Rate.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

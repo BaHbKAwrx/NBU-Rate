@@ -38,4 +38,10 @@ struct DateConverter {
         let newDate = Calendar.current.date(byAdding: dateComponents, to: now)
         return newDate!
     }
+    
+    // func to get day in int formate from current date
+    static func getDay(from date: Date) -> Int {
+        let calendar = Calendar.current
+        return calendar.component(.day, from: Date())
+    }
 }
