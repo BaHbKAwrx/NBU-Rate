@@ -9,14 +9,19 @@
 import Foundation
 
 class APIManager {
+    
+    enum RequestResult {
+        case success([Currency])
+        case failure(Error)
+    }
  
     private var dataTask: URLSessionDataTask?
     
-    func performRequest(for date: Date, completion: @escaping ([Currency]) -> Void) {
+    func performRequest(currencyCode: String, for date: Date, completion: @escaping (RequestResult) -> Void) {
         
-        dataTask?.cancel()
+        //dataTask?.cancel()
         
-        guard let url = requestURL(for: date) else {
+        guard let url = requestURL(currencyCode: currencyCode, for: date) else {
             print("Error with URL")
             return
         }
@@ -25,15 +30,17 @@ class APIManager {
         
         dataTask = session.dataTask(with: url, completionHandler: { (data, response, error) in
             
-            if let error = error as NSError?, error.code == -999 {
-                print("data task was cancelled")
+            if let error = error {
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
                 return
             }
             if let response = response as? HTTPURLResponse, response.statusCode == 200, let data = data {
                 let currencies = self.parse(data: data)
                 
                 DispatchQueue.main.async {
-                    completion(currencies)
+                    completion(.success(currencies))
                 }
             }
 
@@ -41,10 +48,10 @@ class APIManager {
         dataTask?.resume()
     }
     
-    private func requestURL(for date: Date) -> URL? {
+    private func requestURL(currencyCode: String, for date: Date) -> URL? {
         let convertedDate = DateConverter.toURLFormat(with: date)
         
-        let urlString = "https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?date=\(convertedDate)&json"
+        let urlString = "https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?\(currencyCode)date=\(convertedDate)&json"
         let url = URL(string: urlString)
         return url
     }

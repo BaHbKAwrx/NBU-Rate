@@ -17,11 +17,17 @@ class CurrencyListViewController: UITableViewController {
         super.viewDidLoad()
         title = "Loading..."
         
-        apiManager.performRequest(for: Date()) { currencyArray in
-            self.currencies = currencyArray
-            self.title = "Курс на \(self.currencies.first?.exchangeDate ?? " ")"
-            self.tableView.reloadData()
+        apiManager.performRequest(currencyCode: "", for: Date()) { (result) in
+            switch result {
+            case .failure(let error as NSError):
+                self.showNetworkError(error: error)
+            case .success(let currencies):
+                self.currencies = currencies
+                self.title = "Курс на \(self.currencies.first?.exchangeDate ?? " ")"
+                self.tableView.reloadData()
+            }
         }
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -32,6 +38,13 @@ class CurrencyListViewController: UITableViewController {
                 }
             }
         }
+    }
+    
+    private func showNetworkError(error: NSError) {
+        let alertController = UIAlertController(title: "Unable to get data", message: "\(error.localizedDescription)", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
     }
 
     // MARK: - Table view data source
