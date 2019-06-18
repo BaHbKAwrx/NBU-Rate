@@ -8,7 +8,7 @@
 
 import Foundation
 
-class APIManager {
+final class APIManager {
     
     enum RequestResult {
         case success([Currency])
@@ -48,6 +48,7 @@ class APIManager {
         dataTask?.resume()
     }
     
+    // configuring URL due to request parameters
     private func requestURL(currencyCode: String, for date: Date) -> URL? {
         let convertedDate = DateConverter.toURLFormat(with: date)
         
@@ -56,6 +57,7 @@ class APIManager {
         return url
     }
     
+    // transforming data into Currency array using Codable
     private func parse(data: Data) -> [Currency] {
         do {
             let decoder = JSONDecoder()

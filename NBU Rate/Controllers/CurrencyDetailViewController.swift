@@ -9,58 +9,62 @@
 import UIKit
 import Charts
 
-class CurrencyDetailViewController: UIViewController {
+final class CurrencyDetailViewController: UIViewController {
     
-    @IBOutlet weak var rateChart: LineChartView!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var codeLabel: UILabel!
-    @IBOutlet weak var currencyImage: UIImageView!
-    @IBOutlet weak var currencyNameLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
+    // MARK: - Outlets
+    @IBOutlet private weak var rateChart: LineChartView!
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet private weak var codeLabel: UILabel!
+    @IBOutlet private weak var currencyImage: UIImageView!
+    @IBOutlet private weak var currencyNameLabel: UILabel!
+    @IBOutlet private weak var descriptionLabel: UILabel!
     
+    // MARK: - Properties
     var currencyCode = ""
     private let apiManager = APIManager()
     private var currencies = [Currency]()
 
+    // MARK: - VC Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         activityIndicator.startAnimating()
         setElementsAlpha(to: 0)
-
-        print(currencyCode)
         
-        // getting 7 previous days date
-        for i in 1..<8 {
-            apiManager.performRequest(currencyCode: "valcode=\(currencyCode)&", for: DateConverter.getPreviousDate(withOffset: i)) { (result) in
-                switch result {
-                case .failure(let error as NSError):
-                    print("\(error.localizedDescription)")
-                case .success(let currencies):
-                    self.currencies += currencies
-                    if self.currencies.count == 7 {
-                        self.currencies.sort(by: { (currencyData1, currencyData2) -> Bool in
-                            DateConverter.dateFromString(currencyData1.exchangeDate).compare(DateConverter.dateFromString(currencyData2.exchangeDate)) == .orderedAscending
-                        })
-                        print("Ready: ", self.currencies)
-                        self.setupUI(with: self.currencies)
-                    }
-                }
-            }
-        }
-        
+        getHistoricData(forDays: Constants.historicDataCount)
     }
     
     deinit {
         print("Deinit completed")
     }
     
+    // MARK: - Methods
     private func setElementsAlpha(to value: CGFloat) {
         rateChart.alpha = value
         codeLabel.alpha = value
         currencyImage.alpha = value
         currencyNameLabel.alpha = value
         descriptionLabel.alpha = value
+    }
+    
+    private func getHistoricData(forDays days: Int) {
+        // checking for valid value
+        guard days > 0 else { return }
+        for i in 1..<days + 1 {
+            apiManager.performRequest(currencyCode: "valcode=\(currencyCode)&", for: DateConverter.getPreviousDate(withOffset: i)) { (result) in
+                switch result {
+                case .failure(let error as NSError):
+                    print("\(error.localizedDescription)")
+                case .success(let currencies):
+                    guard let currency = currencies.first else { return }
+                    self.currencies += [currency]
+                    if self.currencies.count == days {
+                        self.currencies.sort { DateConverter.dateFromString($0.exchangeDate).compare(DateConverter.dateFromString($1.exchangeDate)) == .orderedAscending }
+                        self.setupUI(with: self.currencies)
+                    }
+                }
+            }
+        }
     }
     
     private func setupUI(with currencies: [Currency]) {
@@ -72,7 +76,8 @@ class CurrencyDetailViewController: UIViewController {
             currencyImage.image = UIImage(named: image)
         }
         setupChart(with: currencies)
-        UIView.animate(withDuration: 1) {
+        // fade animation
+        UIView.animate(withDuration: Constants.fadeAnimationDuration) {
             self.setElementsAlpha(to: 1.0)
         }
     }
@@ -97,7 +102,6 @@ class CurrencyDetailViewController: UIViewController {
         set.valueTextColor = .clear
         
         let data = LineChartData(dataSet: set)
-        
         rateChart.data = data
     }
     

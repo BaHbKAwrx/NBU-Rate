@@ -12,7 +12,6 @@ struct DateConverter {
     
     // func to convert date object to string like "20190615" (to pass it to url)
     static func toURLFormat(with date: Date) -> String {
-        
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy.MM.dd"
         
@@ -42,6 +41,6 @@ struct DateConverter {
     // func to get day in int formate from current date
     static func getDay(from date: Date) -> Int {
         let calendar = Calendar.current
-        return calendar.component(.day, from: Date())
+        return calendar.component(.day, from: date)
     }
 }

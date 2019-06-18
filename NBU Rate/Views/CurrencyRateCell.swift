@@ -10,20 +10,15 @@ import UIKit
 
 class CurrencyRateCell: UITableViewCell {
     
-    @IBOutlet weak var currencyImage: UIImageView!
-    @IBOutlet weak var currencyCode: UILabel!
-    @IBOutlet weak var currencyName: UILabel!
-    @IBOutlet weak var currencyRate: UILabel!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    @IBOutlet private weak var currencyImage: UIImageView!
+    @IBOutlet private weak var currencyCode: UILabel!
+    @IBOutlet private weak var currencyName: UILabel!
+    @IBOutlet private weak var currencyRate: UILabel!
+
+    func configure(with currency: Currency) {
+        currencyCode.text = currency.code
+        currencyName.text = currency.name
+        currencyRate.text = String(format: "%.4f", currency.rate)
+        currencyImage.image = UIImage(named: currency.image)
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }
